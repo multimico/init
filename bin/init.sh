@@ -31,8 +31,7 @@ then
     exit 1
 fi
 
-mkdir -p /run/multimico/init /run/multimico/bootstrap
-
-git clone "$BOOTSTRAP_REPO" /run/multimico/init
+# The bootstrap path is globally created 
+git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap
 
 bash /run/multimico/init/bin/init.sh
