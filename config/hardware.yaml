@@ -1,0 +1,26 @@
+# Hosts beschreiben die Hardware-Knoten. 
+
+# Die Hosts müssen nur von Intern (aus dem ZHAW Mitarbeitende oder VPN) 
+#    via SSH (Port 22) erreichbar sein.
+#
+# Weil die Hardware-Knoten OVS mit nur einem NIC laufen lassen, kann die offizielle 
+# MAC Adresse nicht verwendet werden. 
+#
+# Die offizielle MAC-Adresse wird nur während einer Neuinstallation verwendet. 
+# Bei einer Neuinstallation erfolgen Netzwerkzugriffe nur nach aussen. Anschliessend wird 
+# automatisch das Managementinterface (mgnt0) mit der jeweiligen MAC-Adresse initialisiert. 
+#
+# Die Namen unter `name` werden von IT festgelegt und entsprechen den DNS namen.
+#
+# Die Werte unter `phys-macaddress` sind die MAC Adressen der physischen Hardware, die während 
+# der Installation benötigt wird. 
+host:
+  - name: clt-lab-n-1160 # DNS Name wird durch IT zugewiesen
+    macaddress: 00-16-3E-6D-CF-1B
+    phys-macaddress: 1C-69-7A-63-BB-20
+  - name: clt-lab-n-1161
+    macaddress: 00-16-3E-7C-01-EF
+    phys-macaddress: 1C-69-7A-63-B0-D3
+  - name: clt-lab-n-1162
+    macaddress: 00-16-3E-32-3B-27
+    phys-macaddress: 1C-69-7A-63-A0-D9

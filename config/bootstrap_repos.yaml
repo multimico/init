@@ -1,0 +1,12 @@
+- description: LXD-Hosts without Clustering
+  active: true
+  repo: https://github.com/multimico/lxd-host.git
+  host: 
+  - clt-lab-n-1160
+  - clt-lab-n-1161
+  - clt-lab-n-1162
+- description: Template with invalid repo
+  active: false
+  repo: https://github.com/multimico/invalid.git
+  host: 
+  - dummy
