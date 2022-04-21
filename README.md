@@ -1,2 +1,3 @@
 # init
-Bootstrap Hooks for Host Initialisation
+
+cloud-init configuration for the initial phase of bootstrapping
