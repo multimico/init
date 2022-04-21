@@ -4,6 +4,10 @@
 PWD=$( dirname "$(readlink -f "${BASH_SOURCE}")" )
 CDIR=$(dirname $PWD)
 
+# move yq into place
+wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+chmod a+x /usr/local/bin/yq
+
 # get MAC ADDR
 NAME=
 
@@ -32,6 +36,8 @@ then
 fi
 
 # The bootstrap path is globally created 
+mkdir -p /run/multimico/bootstrap
+
 git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap
 
 bash /run/multimico/init/bin/init.sh
