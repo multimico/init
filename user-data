@@ -34,8 +34,6 @@ autoinstall:
     config:
       # drive Hardware
       - ptable: gpt
-        # serial: SanDisk_SD9SN8W2T001122_20233B800056
-        # wwn: '0x5001b448b5723436'
         path: /dev/sda
         wipe: superblock
         preserve: false
@@ -86,7 +84,6 @@ autoinstall:
         id: mount-1
       # ~ 1.8TB System Data
       - device: disk-sda
-        # size: 2046795186176
         # use all the remaining space (in case we have different drive sizes)
         size: -1
         wipe: superblock
@@ -110,9 +107,11 @@ autoinstall:
     timezone: Europe/Zurich
     hostname: multimico
     users: 
-      - name: dxiai
+      - name: multimico
+        # multimico 
         passwd: "$6$GZ2QZKpiMQIhRI/O$E2QgSCFz9MsWhOgV9zdFUEGbpLrExXEZ5XZrpjZbjMZcUg5sq8ozJU074qBEWfvs8c9zrQdbzsNr9w7J7PAuH."
         shell: /bin/bash
+        # the multimico team is granted access to the host
         ssh_import_id: 
           - gh:phish108
           - gh:bajkad
@@ -123,21 +122,28 @@ autoinstall:
           - plugdev
           - cdrom
         lock_passwd: false
+
+    # package update is needed for extra installs
     package_update: true
-    package_upgrade: true
-    package_reboot_if_required: true
+
+    # package upgrade and reboot should run via ansible
+    package_upgrade: false
+    package_reboot_if_required: false
+
     packages:
       - petname
       - openvswitch-switch-dpdk
       - libosinfo-bin
+      
+    # Once the machine is up, no cloud-init should run
     write_files: 
       - path: /etc/cloud/cloud-init.disabled
         content: " "
-    # the following commands run after all package updates and installs
+
+    # The following commands run after all package updates and installs
+    # This runs after first reboot
     runcmd:
       # bootstrap the machine specific installation
       - mkdir -p /run/multimico/init
       - git clone https://github.com/multimico/init.git /run/multimico/init
       - bash /run/multimico/init/bin/init.sh  
-      
-  
