@@ -3,7 +3,8 @@
 # The hosts will have virtual mac addresses because ovs will claim the network device. 
 # The virtual MAC is used as soon the device is UP. 
 # The physical MAC address is used during bootstrapping. 
-# If no virtual MAC is set or the phys-macaddress is the same as macaddress, no OVS should be used. 
+# If no virtual MAC is set or the phys-macaddress is the same as macaddress, no OVS should be used. However,
+# This is set by the bootstrapping script.
 
 host:
   - name: clt-lab-n-1160 # name for bootstrapping
