@@ -130,6 +130,7 @@ autoinstall:
     package_upgrade: false
     package_reboot_if_required: false
 
+    # Not sure whether this should go also into bootstrapping
     packages:
       - petname
       - openvswitch-switch-dpdk
