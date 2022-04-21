@@ -108,7 +108,6 @@ autoinstall:
     hostname: multimico
     users: 
       - name: multimico
-        # multimico 
         passwd: "$6$GZ2QZKpiMQIhRI/O$E2QgSCFz9MsWhOgV9zdFUEGbpLrExXEZ5XZrpjZbjMZcUg5sq8ozJU074qBEWfvs8c9zrQdbzsNr9w7J7PAuH."
         shell: /bin/bash
         # the multimico team is granted access to the host
