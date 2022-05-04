@@ -27,6 +27,8 @@ then
     exit 1
 fi
 
+MACADDRESS=$( yq ".host[] | select(.phys-macaddress == \"${IPADDR}\").macaddress" "${CDIR}/config/hardware.yaml" )
+
 BOOTSTRAP_REPO=$( yq ".[] | select(.host[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
 
 if [ -z $BOOTSTRAP_REPO ]
@@ -40,4 +42,4 @@ mkdir -p /run/multimico/bootstrap
 
 git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap
 
-bash /run/multimico/bootstrap/bin/init.sh
+bash /run/multimico/bootstrap/bin/init.sh $(echo $MACADDRESS | sed -E s/-/:/g)
