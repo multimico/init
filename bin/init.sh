@@ -27,7 +27,7 @@ then
     exit 1
 fi
 
-BOOTSTRAP_REPO=$( yq "select(.[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
+BOOTSTRAP_REPO=$( yq ".[] | select(.host[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
 
 if [ -z $BOOTSTRAP_REPO ]
 then
