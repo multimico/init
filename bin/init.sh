@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ensure the proper directories
-PWD=$( dirname "$(readlink -f "${BASH_SOURCE}")" )
-CDIR=$(dirname $PWD)
+# PWD=$( dirname "$(readlink -f "${BASH_SOURCE}")" )
+CDIR="/run/multimico/init"
 
 # move yq into place
 wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
