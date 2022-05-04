@@ -13,7 +13,7 @@ NAME=
 
 for IPADDR in $(ip addr | grep ether | sed -E "s/.*ether (\S+) brd.*$/\U\1/" | sed -E s/:/-/g)
 do
-    TNAME=$( yq ".host[] | select(.phys-macaddress == \"$IPADDR\").name" "${CDIR}/config/hardware.yaml" )
+    TNAME=$( yq ".host[] | select(.phys-macaddress == \"${IPADDR}\").name" "${CDIR}/config/hardware.yaml" )
 
     if [ ! -z $TNAME ]
     then
@@ -27,7 +27,7 @@ then
     exit 1
 fi
 
-BOOTSTRAP_REPO=$( yq "select(.host[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
+BOOTSTRAP_REPO=$( yq "select(.[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
 
 if [ -z $BOOTSTRAP_REPO ]
 then
