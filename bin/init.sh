@@ -40,4 +40,4 @@ mkdir -p /run/multimico/bootstrap
 
 git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap
 
-bash /run/multimico/init/bin/init.sh
+bash /run/multimico/bootstrap/bin/init.sh
