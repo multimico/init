@@ -145,5 +145,4 @@ autoinstall:
     runcmd:
       # bootstrap the machine specific installation
       - mkdir -p /run/multimico/init
-      - git clone https://github.com/multimico/init.git /run/multimico/init
-      - bash /run/multimico/init/bin/init.sh  
+      - git clone https://github.com/multimico/init.git /run/multimico/init && bash /run/multimico/init/bin/init.sh
