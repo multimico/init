@@ -40,6 +40,8 @@ fi
 # The bootstrap path is globally created 
 mkdir -p /run/multimico/bootstrap
 
-git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap
 
-bash /run/multimico/bootstrap/bin/init.sh $(echo $MACADDRESS | sed -E s/-/:/g)
+echo "Pass $(echo $MACADDRESS | sed -E s/-/:/g) to sub init script"
+
+git clone "$BOOTSTRAP_REPO" /run/multimico/bootstrap && \
+    bash /run/multimico/bootstrap/bin/init.sh $(echo $MACADDRESS | sed -E s/-/:/g)
