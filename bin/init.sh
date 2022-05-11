@@ -29,6 +29,12 @@ fi
 
 MACADDRESS=$( yq ".host[] | select(.phys-macaddress == \"${IPADDR}\").macaddress" "${CDIR}/config/hardware.yaml" )
 
+if [ -z $MACADDRESS ]
+then
+    echo "No MAC Address found to $NAME!"
+    # exit 1
+fi
+
 BOOTSTRAP_REPO=$( yq ".[] | select(.host[] | contains(\"$NAME\") and .active).repo" "${CDIR}/config/bootstrap_repos.yaml" )
 
 if [ -z $BOOTSTRAP_REPO ]
