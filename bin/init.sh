@@ -21,6 +21,7 @@ do
     then
         NAME=$TNAME
         MACADDRESS=$( yq ".host[] | select(.phys-macaddress == \"${PMACADDR}\").macaddress" "${CDIR}/config/hardware.yaml" )
+        break
     fi
 done
 
