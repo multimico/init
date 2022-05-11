@@ -127,7 +127,7 @@ autoinstall:
 
     # package upgrade and reboot should run via ansible
     package_upgrade: false
-    package_reboot_if_required: false
+    package_reboot_if_required: true
 
     # Not sure whether this should go also into bootstrapping
     packages:
