@@ -134,6 +134,7 @@ autoinstall:
       - petname
       - openvswitch-switch-dpdk
       - libosinfo-bin
+      - whois
       
     # Once the machine is up, no cloud-init should run
     write_files: 
